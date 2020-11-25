@@ -3,23 +3,28 @@ import random
 import numpy as np 
 from typing import List, Dict, Tuple, Set
 
+from statistics import mean
+from operator import attrgetter
+
 ##### STEP 1 #####
 
 # Present a data structure to represent a player and its score : 
 
 class Player() : 
-    def __init__(self, name:str) : 
+    def __init__(self, name:str, score= None) : 
         self.name = name 
         self.impostor = False
         self.alive = True 
-        self.score = 0 
+        self.score = score if score is not None else 0
+        self.left = None ## 
+        self.right = None ##
     
     def __str__(self) -> str: 
         res = self.name + 'is'
         if self.alive: 
-            res += 'alive, and he is'
+            res += ' alive, and he is '
         else : 
-            res += 'dead, and he is'
+            res += ' dead, and he is '
         if self.impostor: 
             res += 'an Impostor'
         else : 
@@ -28,6 +33,233 @@ class Player() :
 
 
 # Present a most optimized data structures for the tournament(called database) : 
+
+class AVLTree():
+    def __init__(self):
+        self.node = None
+        self.height = -1
+        self.balance = 0
+
+    def insert(self, player):
+        if self.node == None:
+            self.node = player
+            self.node.right = AVLTree()
+            self.node.left = AVLTree()
+        elif player.score > self.node.score:
+            self.node.right.insert(player)
+        else:
+            self.node.left.insert(player)
+        self.rebalance()
+
+    def delete(self, player):
+        if self.node != None:
+            if self.node.name == player.name:
+                # Key found in leaf node, just erase it
+                if not self.node.left.node and not self.node.right.node:
+                    self.node = None
+                # Node has only one subtree (right), replace root with that one
+                elif not self.node.left.node:                
+                    self.node = self.node.right.node
+                # Node has only one subtree (left), replace root with that one
+                elif not self.node.right.node:
+                    self.node = self.node.left.node
+                else:
+                    # Find  successor as smallest node in right subtree or
+                    # predecessor as largest node in left subtree
+                    successor = self.node.right.node  
+                    while successor and successor.left.node:
+                        successor = successor.left.node
+
+                    if successor:
+                        self.node = successor
+                        # Delete successor from the replaced node right subree
+                        self.node.right.delete(successor)
+
+            elif player.score <= self.node.score:
+                self.node.left.delete(player)
+
+            elif player.score > self.node.score:
+                self.node.right.delete(player)
+
+            # Rebalance tree
+            self.rebalance()
+
+    def rebalance(self):
+        """
+        Rebalance tree
+        After inserting or deleting a node, 
+        it is necessary to check each of the node's ancestors for consistency with the rules of AVL
+        """
+        # Check if we need to rebalance the tree
+        self.update_heights(recursive=False)
+        self.update_balances(False)
+
+        # For each node checked, 
+        #   if the balance factor remains −1, 0, or +1 then no rotations are necessary.
+        while self.balance < -1 or self.balance > 1: 
+            # Left subtree is larger than right subtree
+            if self.balance > 1:
+
+                # Left Right Caseif self.node.left.balance < 0:self.node.left.rotate_left()
+                self.update_heights()
+                self.update_balances()
+
+                self.rotate_right()
+                self.update_heights()
+                self.update_balances()
+            
+            # Right subtree is larger than left subtree
+            if self.balance < -1:
+                
+                # Right Left Case
+                if self.node.right.balance > 0:
+                    self.node.right.rotate_right() # we're in case III
+                    self.update_heights()
+                    self.update_balances()
+
+                # Right Right Case
+                self.rotate_left()
+                self.update_heights()
+                self.update_balances()
+
+    def update_heights(self, recursive=True):
+        """
+        Update tree height
+        Tree height is max height of either left or right subtrees +1 for root of the tree
+        """
+        if self.node: 
+            if recursive: 
+                if self.node.left: 
+                    self.node.left.update_heights()
+                if self.node.right:
+                    self.node.right.update_heights()
+            
+            self.height = 1 + max(self.node.left.height, self.node.right.height)
+        else: 
+            self.height = -1
+
+    def update_balances(self, recursive=True):
+        """
+        Calculate tree balance factor
+        The balance factor is calculated as follows: 
+        balance = height(left subtree) - height(right subtree). 
+        """
+        if self.node:
+            if recursive:
+                if self.node.left:
+                    self.node.left.update_balances()
+                if self.node.right:
+                    self.node.right.update_balances()
+
+            self.balance = self.node.left.height - self.node.right.height
+        else:
+            self.balance = 0
+
+    def rotate_right(self):
+        """
+        Right rotation
+        set self as the right subtree of left subree
+        """
+        new_root = self.node.left.node
+        new_left_sub = new_root.right.node
+        old_root = self.node
+
+        self.node = new_root
+        old_root.left.node = new_left_sub
+        new_root.right.node = old_root
+
+    def rotate_left(self):
+        """
+        Left rotation
+        set self as the left subtree of right subree
+        """
+        new_root = self.node.right.node
+        new_left_sub = new_root.left.node
+        old_root = self.node
+
+        self.node = new_root
+        old_root.right.node = new_left_sub
+        new_root.left.node = old_root
+    
+    def inorder_traverse(self):
+        """
+        Inorder traversal of the tree to return a list of each
+        Player() object contained in the AVL tree
+        """
+        result = []
+
+        if not self.node:
+            return result
+
+        result.extend(self.node.left.inorder_traverse())
+        result.append(self.node)
+        result.extend(self.node.right.inorder_traverse())
+
+        return result
+
+    def get_min(self):
+        # return the objet from Player() with the minimum score
+        current = self.node
+        while current.left.node is not None:
+            current = current.left.node
+        return current
+
+class Tournament2() : 
+
+    def __init__(self):
+        print("Welcome to ZeratoR's Among Us tournament ! \n\n")
+        playerNames = []
+        with open("assets/names.txt") as f:
+            lines = f.readlines()
+            for line in lines:
+                playerNames.append(str(line).rstrip("\n"))
+        players = [Player(player[0], player[1]) for player in list(zip(playerNames, [0 for _ in range(100)]))]
+        self.ladder = AVLTree()
+        [self.ladder.insert(player) for player in players] # All players are insterted in the database with a score of 0
+
+    def rounds(self, number):
+        print(f"Round number {number} is being played: \n")
+        print("First game...\n")
+        firstScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
+        print("Second game...\n")
+        secondScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
+        print("Third game...\n")
+        thirdScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
+        averageScores = [round(mean(data), 2) for data in list(zip(firstScores, secondScores, thirdScores))]
+        self.update_ladder(averageScores)
+        worstPlayers = []
+        for _ in range(10):
+            worst = self.ladder.get_min()
+            worstPlayers.append(worst.name)
+            self.ladder.delete(worst)
+        print(f"These players are out > {worstPlayers} \n")
+
+    def finals(self):
+        print("Finals...\n")
+        for player in self.ladder.inorder_traverse():
+            player.score = 0
+        scores = [[random.randint(0, 12) for _ in range(5)] for i in range(10)]
+        averageScores = [round(mean(data), 2) for data in scores]
+        self.update_ladder(averageScores)
+        scoreboard = self.ladder.inorder_traverse()
+        podium = sorted(scoreboard, key=attrgetter("score"), reverse=True)
+        print([finalist.name + " " + str(finalist.score) for finalist in podium])
+
+    def update_ladder(self, averageScores):
+        newLadder = AVLTree()
+        i = 0
+        for player in self.ladder.inorder_traverse():
+            player.score += averageScores[i]
+            newLadder.insert(player)
+            i += 1
+        self.ladder = newLadder
+
+    @staticmethod 
+    def run():
+        step1 = Tournament2()
+        [step1.rounds(roundNumber) for roundNumber in range(1, 10)] # We play the 10 rounds of 3 games
+        step1.finals()
+
 
 class Tournament() : 
     """
@@ -41,10 +273,10 @@ class Tournament() :
 
     def __str__(self) :
         print("Among US Tournament\n\n\n")
-        res = 'Players : \n'
+        res = 'Players : \n\n'
         for player in self.players: 
             res += player.name + ' scored a total of : ' + str(player.score) + 'points\n'
-        res += '\n Players and their scores : \n'
+        res += '\n Players and their scores : \n\n'
         for game in self.games : 
             res += str(game) + '\n'
         return res 
@@ -83,7 +315,7 @@ class Game():
         self.game_number = Game.total_game_number
         
     def __str__(self) -> str:
-        res = 'Game ' + str(self.game_number) + '\n\nPlayers :\n\n'
+        res = '\nGame ' + str(self.game_number) + '\n\nPlayers :\n\n'
         for player in self.players:
             res += str(player) + '\n'
         res += 'Impostor 1 : ' + self.impostors[0].name
@@ -272,6 +504,8 @@ class Game():
                     cm_vote_im = random.randint(5, 7)
                     self.Tasks_Vote_point(cm_vote_im, 3)
     
+    ##### STEP 2 #####
+
     def graph_has_seen(self) -> Set[Tuple['Player','Player']]:
         """
         Returns a set of tuples each containing 2 Player objects
@@ -454,7 +688,7 @@ def test_points():
 def test_tournament():
     players = []
     for i in range(100):
-        player_name = 'player' + str(i+1)
+        player_name = 'player ' + str(i+1) + ' '
         players.append(Player(player_name))
     tournament = Tournament(players)
     tournament.Start()
@@ -502,4 +736,12 @@ def test_random_has_seen():
     game.probable_impostors(dead_cm, game.mat_has_seen())
     
 
-test_points()
+
+Tournament2.run()
+
+#test_game()
+#test_tournament()
+#test_points()
+#test_has_seen() 
+#test_random_has_seen()
+   
