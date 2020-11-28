@@ -1,14 +1,18 @@
-##### IMPORTED LIBRARIES ##### 
+############################## IMPORTED LIBRARIES ##############################
 import random 
 import numpy as np 
+import pandas as pd
+import math
+inf = math.inf
 from typing import List, Dict, Tuple, Set
 
 from statistics import mean
 from operator import attrgetter
 
-##### STEP 1 #####
 
-# Present a data structure to represent a player and its score : 
+############################## STEP 1 ##############################
+
+# 1- Present a data structure to represent a player and its score : 
 
 class Player() : 
     def __init__(self, name:str, score= None) : 
@@ -16,8 +20,8 @@ class Player() :
         self.impostor = False
         self.alive = True 
         self.score = score if score is not None else 0
-        self.left = None ## 
-        self.right = None ##
+        self.left = None  
+        self.right = None
     
     def __str__(self) -> str: 
         res = self.name + 'is'
@@ -31,8 +35,10 @@ class Player() :
             res += 'a Crewmate'
         return res 
 
-
-# Present a most optimized data structures for the tournament(called database) : 
+# 2- Present a most optimized data structures for the tournament(called database) : 
+# 3- Method that randomize player score at each game (between 0 point to 12 points) : 
+# 4- Method to update Players score and the database : 
+# 5- Method to create and random games based on the database : 
 
 class AVLTree():
     def __init__(self):
@@ -54,13 +60,13 @@ class AVLTree():
     def delete(self, player):
         if self.node != None:
             if self.node.name == player.name:
-                # Key found in leaf node, just erase it
+                # If we find the key in the leaf node, we erase the player. 
                 if not self.node.left.node and not self.node.right.node:
                     self.node = None
-                # Node has only one subtree (right), replace root with that one
+                # Node has only one subtree (right), replacing the root
                 elif not self.node.left.node:                
                     self.node = self.node.right.node
-                # Node has only one subtree (left), replace root with that one
+                # Node has only one subtree (left), replacing the root
                 elif not self.node.right.node:
                     self.node = self.node.left.node
                 else:
@@ -81,14 +87,14 @@ class AVLTree():
             elif player.score > self.node.score:
                 self.node.right.delete(player)
 
-            # Rebalance tree
+            # Rebalancing the tree after deleting the players so that we have a balanced tree. 
             self.rebalance()
 
     def rebalance(self):
         """
         Rebalance tree
-        After inserting or deleting a node, 
-        it is necessary to check each of the node's ancestors for consistency with the rules of AVL
+        After inserting or deleting a node, we have to check if the node is balanced and 
+        update it so that we respect the AVL Tree's conditions. 
         """
         # Check if we need to rebalance the tree
         self.update_heights(recursive=False)
@@ -204,26 +210,43 @@ class AVLTree():
             current = current.left.node
         return current
 
-class Tournament2() : 
+class Tournament() : 
 
     def __init__(self):
-        print("Welcome to ZeratoR's Among Us tournament ! \n\n")
-        playerNames = []
-        with open("assets/names.txt") as f:
-            lines = f.readlines()
+
+        print("Welcome to the ZLAN ! \n\n")
+        print("We will now proceed to the Among Us Tournament \n")
+        print(" Rules : \n\n - There is a total of 100 players. \n - 10 rounds of 3 games where we regroup players based on their ranking. \n - For the last 10 players, we will play 5 games with reinitiated ranking to give the podium. \n")
+        Names = []
+        with open("assets/names.txt") as file:
+            lines = file.readlines()
             for line in lines:
-                playerNames.append(str(line).rstrip("\n"))
-        players = [Player(player[0], player[1]) for player in list(zip(playerNames, [0 for _ in range(100)]))]
+                Names.append(str(line).rstrip("\n"))
+        players = [Player(player[0], player[1]) for player in list(zip(Names, [0 for _ in range(100)]))]
         self.ladder = AVLTree()
-        [self.ladder.insert(player) for player in players] # All players are insterted in the database with a score of 0
+        [self.ladder.insert(player) for player in players] # We insert all the players in the database with a initial score of 0. 
+
+
 
     def rounds(self, number):
+        
+        shufflerRole = random.choice(['Crewmates','Impostors'])
+        shufflerWin = ''
+
+        if shufflerRole == 'Crewmates':
+          shufflerWin = random.choice(['by doing all the tasks.\n','by finding all the impostors.\n'])
+        else : 
+          shufflerWin = random.choice(['by killing the Crewmates.\n','by sabotaging the spaceship.\n'])
+     
         print(f"Round number {number} is being played: \n")
-        print("First game...\n")
+        print("First game --> \n")
+        print("The",shufflerRole,"won the game",shufflerWin)
         firstScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
-        print("Second game...\n")
+        print("Second game --> \n")
+        print("The",shufflerRole,"won the game",shufflerWin)
         secondScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
-        print("Third game...\n")
+        print("Third game --> \n")
+        print("The",shufflerRole,"won the game",shufflerWin)
         thirdScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
         averageScores = [round(mean(data), 2) for data in list(zip(firstScores, secondScores, thirdScores))]
         self.update_ladder(averageScores)
@@ -234,16 +257,7 @@ class Tournament2() :
             self.ladder.delete(worst)
         print(f"These players are out > {worstPlayers} \n")
 
-    def finals(self):
-        print("Finals...\n")
-        for player in self.ladder.inorder_traverse():
-            player.score = 0
-        scores = [[random.randint(0, 12) for _ in range(5)] for i in range(10)]
-        averageScores = [round(mean(data), 2) for data in scores]
-        self.update_ladder(averageScores)
-        scoreboard = self.ladder.inorder_traverse()
-        podium = sorted(scoreboard, key=attrgetter("score"), reverse=True)
-        print([finalist.name + " " + str(finalist.score) for finalist in podium])
+
 
     def update_ladder(self, averageScores):
         newLadder = AVLTree()
@@ -254,364 +268,232 @@ class Tournament2() :
             i += 1
         self.ladder = newLadder
 
+    def finals(self):
+        print("Finals --> \n")
+        for player in self.ladder.inorder_traverse():
+            player.score = 0
+        scores = [[random.randint(0, 12) for _ in range(5)] for i in range(10)]
+        averageScores = [round(mean(data), 2) for data in scores]
+        self.update_ladder(averageScores)
+        scoreboard = self.ladder.inorder_traverse()
+        podium = sorted(scoreboard, key=attrgetter("score"), reverse=True)
+        print([finalist.name + " " + str(finalist.score) for finalist in podium])
+
+
     @staticmethod 
     def run():
-        step1 = Tournament2()
+        step1 = Tournament()
         [step1.rounds(roundNumber) for roundNumber in range(1, 10)] # We play the 10 rounds of 3 games
         step1.finals()
 
-
-class Tournament() : 
-    """
-     In this class, we present players displayed through our datastructure as a list of players. 
-     We will also initialize the starting point of our tournament where we randomize the player's teams. 
-    """
-    def __init__(self, players : List['Player']): 
-        self.players = players 
-        self.games = []
-
-
-    def __str__(self) :
-        print("Among US Tournament\n\n\n")
-        res = 'Players : \n\n'
-        for player in self.players: 
-            res += player.name + ' scored a total of : ' + str(player.score) + 'points\n'
-        res += '\n Players and their scores : \n\n'
-        for game in self.games : 
-            res += str(game) + '\n'
-        return res 
-
-    def Start(self):
-        shuffled_players = random.sample(self.players, k=len(self.players))
-        for i in range(10):
-            game_players = shuffled_players[10*i:10*(i+1)]
-            self.games.append(Game(game_players))
-
-
 class Game():
     """
-     In this class, we will initialize all the specificities that we need as known : 10 players, amongst those 10 players are 2 impostors 
-     that we initialized before. 
+     In this class, we will initialize all the specificities that we need as known : 10 players, amongst those 10 players are 2 impostors that we initialized before.
     """
     total_game_number=0
     def __init__(self, players:List['Player']):
         if len(players) == 10:
-            for player in players: #reset players' attributes
+            for player in players: 
                 player.alive = True
                 player.impostor = False
             self.players = players 
         else:
             self.players = None
-            
-        self.impostors = random.sample(players, k=2) #set 2 random impostors
+        # Initializing 2 random impostors. 
+        self.impostors = random.sample(players, k=2) 
         for player in self.impostors:
             player.impostor = True
             
-        self.crewmates = [] #list of crewmates which can be easier to manipulate in some cases
+        self.crewmates = []
         for player in players:
             if not player.impostor: self.crewmates.append(player)
-            
-        Game.total_game_number += 1 #increase the total number of games static class attribute
-        self.game_number = Game.total_game_number
         
-    def __str__(self) -> str:
-        res = '\nGame ' + str(self.game_number) + '\n\nPlayers :\n\n'
-        for player in self.players:
-            res += str(player) + '\n'
-        res += 'Impostor 1 : ' + self.impostors[0].name
-        res += '\nImpostor 2 : ' + self.impostors[1].name
-        return res
-    
+
     def Tasks_Vote_point(self,nb_done,multipl):
         """
-        This method adds the points for votes and tasks to the crewmates
-        Parameters
-        ----------
-        nb_done : TYPE
-            DESCRIPTION.
-        multipl : TYPE
-            DESCRIPTION.
-        Returns
-        -------
-        None.
+        This method adds the points depending on votes and tasks done. 
         """
         liste = []
         while(nb_done!=0):
             for crewmate in self.crewmates:
                 ran = random.randint(1, 3)
-                if ran == 1 and nb_done != 0: #means crewmate has done all tasks
+                # Taking the possibility that the crewmates have done all the tasks. 
+                if ran == 1 and nb_done != 0: 
                     if crewmate not in liste:
                         crewmate.score += 1 * multipl
                         liste.append(crewmate)
                         nb_done -= 1
  
     
-    def Kill_cm(self, nb_dead: int):
+    def Kill_Count(self, nb_dead: int):
         """
-        
-        Parameters
-        ----------
-        nb_dead : int
-            DESCRIPTION.
-        Returns
-        -------
-        None.
+        This method counts the number of kills in the game so that we can attribute points. 
         """
         liste = []
         while(nb_dead != 0):
             for crewmate in self.crewmates:
                 ran = random.randint(1,3)
-                if ran == 1 and nb_dead != 0: #means the crewmate has done all of his tasks
+                # Taking the possibility that the crewmates have done all the tasks. 
+                if ran == 1 and nb_dead != 0: 
                     if crewmate not in liste:
                         crewmate.alive = False
                         liste.append(crewmate)
                         nb_dead -= 1
             
-    
-    
     def Points(self):
         """
-        This functions attributes a score to each player of the game according to the random events in the game
-        Returns
-        -------
-        None.
+        This method attributes a score to each player depending on the events that are randomly listed.
         """
         victory = random.randint(1,2)
         
-        if victory == 1: #impostors win
-            print("\nImpostors Win\n")
+        # Case 1 : Impostors Won 
+        if victory == 1: 
+            print("\nImpostors won\n")
             
-            #then all crewmates are dead
+            #All crewmates are dead.
             for crewmate in self.crewmates:
                 crewmate.alive = False
                 
-            #impostors won : 10 points
+            #For each impostor win we attribute 10 points. 
             for impostor in self.impostors:
                 impostor.score += 10
             im_alive = random.randint(1,3)
             
-            if im_alive == 2: #both impostors are alive at the end of the game
+            # Taking in count the condition that the 2 impostors are alive. 
+            if im_alive == 2: 
             
-                #simple kills
+                # Simple kills :
                 nb_murdered = random.randint(4,7)
                 max_kill_im1 = nb_murdered-1
                 nb_kills_im1 = random.randint(1,max_kill_im1)
                 nb_kills_im2 = nb_murdered-nb_kills_im1
                 
-                #undiscovered murders 
+                # Undiscovered Murders :  
                 undiscovered_murders = random.randint(0,4)#mettre moins de chance sur le 4??
                 nb_spe_kills_im1 = random.randint(0,undiscovered_murders)
                 if nb_spe_kills_im1 > nb_kills_im1: 
                     nb_spe_kills_im1 = nb_kills_im1
                 nb_spe_kills_im2 = undiscovered_murders - nb_spe_kills_im1
                 
-                #attribution of points for the impostors
+                # Adding the points to the impostors : 
                 points_im1 = nb_kills_im1 - nb_spe_kills_im1 + (3 * nb_spe_kills_im1)
                 points_im2 = nb_kills_im2 - nb_spe_kills_im2 + (3 * nb_spe_kills_im2)
                 self.impostors[0].score += points_im1
                 self.impostors[1].score += points_im2
                 
-                #tasks fully done
+                # Tasks all done -> Randomizing the points : 
                 tasks = random.randint(0,7) 
                 self.Tasks_Vote_point(tasks,1)
                 
             else:
-                #case where one impostor is dead, we decide whom
+                # If an impostor is dead we choose which one it is randomly : 
                 im_dead = random.randint(0,1)
                 self.impostors[im_dead].alive = False
                 
-                #simple kills
+                # Simple kills : 
                 nb_murdered = random.randint(4, 7)
                 nb_kill_im_alive = random.randint(nb_murdered - 2, nb_murdered)
                 nb_kill_im_dead = nb_murdered-nb_kill_im_alive
                 
-                #undiscovered murders
+                # Undiscovered Murders :  
                 undiscovered_murders=random.randint(0,3)
                 
-                #undiscovered murdered crewmates
+                # Undiscovered Murders crewmates :  
                 if undiscovered_murders == 3 and nb_kill_im_alive == 2:
                     nb_spe_kill_im_alive = 2
                     
                 else:
                     nb_spe_kill_im_alive = 3
                     
-                #attribution of the points for the impostors
+                # Adding the points to the impostors : 
                 points_im_alive = nb_spe_kill_im_alive * 3 - (nb_kill_im_alive - nb_spe_kill_im_alive)
                 points_im_dead = nb_kill_im_dead #no special kill for dead impostor
                 self.impostors[im_dead].score += points_im_dead
                 im_alive = 1 - im_dead
                 self.impostors[im_alive].score += points_im_alive
                 
-                #tasks fully done
-                tasks = random.randint(2, 7) #more possible tasks done because one impostor is dead
+                # Tasks all done -> Randomizing the points :
+                tasks = random.randint(2, 7)
                 self.Tasks_Vote_point(tasks,1)
                 
-                #vote points
+                # Randomizing the points for voting : 
                 vote = random.randint(3, 8)
                 self.Tasks_Vote_point(vote, 3)
-                
-        else: #crewmates win
-            print("\nCrewmates Win")
+
+        # Case 2 : Crewmates won.       
+        else: 
+            print("\nCrewmates won")
             for crewmate in self.crewmates:
                 crewmate.score += 5
             win_crewmates = random.randint(0,10)
             
             if win_crewmates <= 7:
-                print("by killing all Impostors\n")
+                print("by killing all the impostors\n")
                 
-                #2 impostors are dead
+                
                 self.impostors[0].alive = False
                 self.impostors[1].alive = False
                 
-                #simple_kills points impostors
                 dead_crewmates = random.randint(1,5)
                 nb_kills_im1 = random.randint(0,dead_crewmates)
                 self.impostors[0].score += nb_kills_im1
                 self.impostors[1].score += dead_crewmates-nb_kills_im1
                 
-                #dead cm
-                self.Kill_cm(dead_crewmates)
                 
-                #first vote to kill impostor
-                dead_cm_first_time = random.randint(0, dead_crewmates)
-                vote = random.randint(3, 8 - dead_cm_first_time)
+                self.Kill_Count(dead_crewmates)
+                
+                
+                dead_crewmate_first_time = random.randint(0, dead_crewmates)
+                vote = random.randint(3, 8 - dead_crewmate_first_time)
                 self.Tasks_Vote_point(vote, 3)
                 
-                #second vote to kill impostor
+             
                 vote = random.randint(3, 8 - dead_crewmates)
                 self.Tasks_Vote_point(vote, 3)
                 
-                #tasks point
+                
                 tasks = random.randint(1, 6) 
                 self.Tasks_Vote_point(tasks, 1)
                 
             else:
-                print("by doing all tasks\n")
-                #all tasks done
+                print("by doing all the tasks\n")
+                
                 self.Tasks_Vote_point(8, 1)
                 
-                #dead cm
-                dead_crewmates = random.randint(0, 4)
-                self.Kill_cm(dead_crewmates)
                 
-                #one impostor dead
+                dead_crewmates = random.randint(0, 4)
+                self.Kill_Count(dead_crewmates)
+                
+                
                 im_is_dead = random.randint(1, 2)
                 if im_is_dead == 1:
                     deadim = random.randint(0, 1)
                     self.impostors[deadim].alive = False
                     
-                    #points for voting impostor
+                
                     cm_vote_im = random.randint(5, 7)
                     self.Tasks_Vote_point(cm_vote_im, 3)
-    
-    ##### STEP 2 #####
 
-    def graph_has_seen(self) -> Set[Tuple['Player','Player']]:
-        """
-        Returns a set of tuples each containing 2 Player objects
-        -------
-        This method uses the list of players to define random connexions between each player. 
-        It returns a graph in the form of a set containing tuples for each 'have seen' relation between players
-        """
-        
-        def list_players_seen(players: List['Player']) -> List['Player']:
-            """
-            This function defines the number of occurences of each player in the graph
-            Parameters
-            ----------
-            players : List['Player']
-                List of players in the game
-            Returns
-            -------
-            l : list(Player)
-                Returns a list of players, in which they appear as often as they have seen another player
-            """
-            l = []
-            for i in range(10):
-                r = random.randint(2,5)
-                for a in range(r):
-                    l.append(players[i])
-            if len(l) % 2 != 0:
-                l.append(players[0])
-            return l
-    
-        occ = list_players_seen(self.players)
-        seen_graph = set()
-        cpt = 0 #this counter will help in case we have a never ending loop
-        #for example, if the last 2 players in the occurrences list are already linked in the graph
-        #the algorithm will try at most 100 times to put them into the set, and then move on
-        
-        while(len(occ) != 0 and cpt < 100): #we stop either when the list of occurrences is empty, or the counter reaches 100
-            a = random.randint(0,len(occ)-1)
-            b = random.randint(0,len(occ)-1) #we pick 2 random players from the list
-            if occ[a] != occ[b] and not (occ[a] in self.impostors and occ[b] in self.impostors): 
-                #since each player appears multiple times in the occurrences list, 
-                #we have to check whether the 2 players picked are different
-                #we also have to check if the 2 players are both impostors as they cannot meet
-                relation = (occ[a], occ[b])
-                rev_relation = (occ[b], occ[a]) #since (a,b) != (b,a) we have to check for both relations to avoid redondoncies
-                if (relation not in seen_graph) and (rev_relation not in seen_graph):
-                    seen_graph.add(relation)
-                    occ.remove(occ[a])
-                    if b > a: occ.remove(occ[b-1])
-                    else: occ.remove(occ[b])
-                else: cpt += 1
-            else: cpt += 1
-            
-        #for relation in seen_graph:
-        #    print (relation[0].name, relation[1].name)  ### FOR TESTING ###
-            
-        return seen_graph
-    
-    def mat_has_seen(self) -> List[List[bool]]:
-        """
-        
-        Returns
-        -------
-        List[List[bool]]
-            The incidence matrix for the graph 'has seen'
-        """
-        seen_graph = self.graph_has_seen()
-        inc_mat = np.zeros((10, len(seen_graph)))
-        nb_j = 0
-        for relation in seen_graph:
-            inc_mat[self.players.index(relation[0]), nb_j] = 1
-            inc_mat[self.players.index(relation[1]), nb_j] = 1
-            nb_j += 1
-        return inc_mat
-    
-    def player_has_seen(self, p: 'Player', inc_mat: List[List[bool]]) -> Tuple[List['Player'], List['Player']]:
+
+############################## STEP 2 ##############################
+
+    def player_has_seen(self, p: 'Player', incidence_matrix: List[List[bool]]) -> Tuple[List['Player'], List['Player']]:
         """
         This method returns the list of players one has seen according to the incidence matrix, along
         with the list of players he has not seen.
-    
-        Parameters
-        ----------
-        p : 'Player'
-            The player whom we want to know who he saw.
-        players : List['Player']
-            The list of players in the game.
-        inc_mat : List[List[bool]]
-            The incidence matrix representing the 'has seen' graph.
-    
-        Returns
-        -------
-        list_has_seen : List['Player']
-            The list of players seen by p.
-        list_not_seen : List['Player']
-            The list of players not seen by p.
-    
         """
-        #define on which line of the incidence matrix the player is
+        
+        # Defining the line of the incidence matrix on which the player is.
         line_p = 0
         for i in range(10):
             if p == self.players[i]: line_p = i
             
         list_has_seen = []
-        for index_c in range(len(inc_mat[0])): #the incidence matrix has dimension 0 of length 10 but variable dimension 1 (number of relations)
-            if inc_mat[line_p, index_c] == 1:
+        for index_c in range(len(incidence_matrix[0])): 
+          # The incidence matrix has dimension 0 of length 10 but variable dimension 1 (number of relations) :
+            if incidence_matrix[line_p, index_c] == 1:
                 for index_l in range(10):
-                    if index_l != line_p and inc_mat[index_l, index_c] == 1: 
+                    if index_l != line_p and incidence_matrix[index_l, index_c] == 1: 
                         list_has_seen.append(self.players[index_l])
              
         list_not_seen = []
@@ -620,36 +502,29 @@ class Game():
                 list_not_seen.append(player)
         return list_has_seen, list_not_seen
     
-    def probable_impostors(self, dead_cm: 'Player', inc_mat: List[List[bool]]) -> Dict['Player', float]:
+
+    def probable_impostors(self, dead_crewmate: 'Player', incidence_matrix: List[List[bool]]) -> Dict['Player', float]:
         """
-        
-        Parameters
-        ----------
-        dead_cm : 'Player'
-            The dead crewmate.
-        inc_mat : List[List[bool]]
-            The incidence matrix.
-        Returns
-        -------
-        probs : Dict['Player', float]
-            A dictionnary with player as key and its probability of being impostor as value
+        Setting up a dictionnary with a player as key and its probability of being impostor as value.
         """
-        probs = {player:0 for player in self.players}
-        
-        first_suspects = self.player_has_seen(dead_cm, inc_mat)[0] #list of players having seen the dead cm, therefore potential first impostor
-        second_suspects_occ = [] #list of suspects for impostor 2
+        probabilities = {player:0 for player in self.players}
+        # Taking in count the list of players having seen the dead crewmate -> Potential first Impostor.
+        first_suspects = self.player_has_seen(dead_crewmate, incidence_matrix)[0] 
+        # List of suspects for imposter 2.
+        second_suspects_occ = [] 
         for suspect in first_suspects:
-            probs[suspect] += 1/len(first_suspects)
-            for suspect2 in self.player_has_seen(suspect, inc_mat)[1]: 
-                second_suspects_occ.append(suspect2) #we add each player not seen by the current suspect to the second_suspect_occ list
-            #each player will appear as much times as there are suspects he has not seen
+            probabilities[suspect] += 1/len(first_suspects)
+            for suspect2 in self.player_has_seen(suspect, incidence_matrix)[1]: 
+                # Adding each player not seen by the current suspect to the second suspect occurence list.    
+                second_suspects_occ.append(suspect2)
+                # Each player will appear as much times as there are suspects he has not seen.
             
         for suspect2 in second_suspects_occ: 
-            probs[suspect2] += 1/len(second_suspects_occ)
+            probabilities[suspect2] += 1/len(second_suspects_occ)
             
-        impostor_probabilities = {player: probs[player] for player in sorted(probs, key=probs.get, reverse=True)}
+        impostor_probabilities = {player: probabilities[player] for player in sorted(probabilities, key=probabilities.get, reverse=True)}
         
-        print("The dead crewmate is", dead_cm.name, "who has seen :")
+        print("The dead crewmate is", dead_crewmate.name, "who has seen :")
         for s in first_suspects:
             print (s.name)
             
@@ -659,16 +534,67 @@ class Game():
             print (p.name, impostor_probabilities[p])
             
         return impostor_probabilities
-   
-def test_game():
-    players = [Player('doubleA'), Player('polo'), Player('tomus'), 
-               Player('youngsamoo'), Player('jbinks'), Player('nyo'), 
-               Player('jojo'), Player('clemter'), Player('paul'), Player('aladin')]
-    game1 = Game(players)
-    game2 = Game(players)
-    print(game1) #la partie est bien crée, et 2 imposteurs sont choisis aléatoirement
-    print(game2)
+        
+
+############################## STEP 3 ##############################
+
+# If there is no edge between two nodes, we set the adjacency value as inf : 
+crewmates_graph = [[0, 15, inf, inf, inf, inf, inf, inf, inf, inf, 10, 9, 12, 9],
+[15, 0, 9, inf, inf, inf, 11, inf, 12, inf, 10, inf, inf, inf], 
+[inf, 9, 0, 10, inf, 7, inf, inf, inf, inf, inf,inf, inf, inf], 
+[inf, inf, 10, 0, 12, 10, inf, inf, inf, inf, inf, inf,inf, inf], 
+[inf, inf, inf, 12, 0, 13,inf, 6, 11, inf, inf, inf, inf,inf], 
+[inf, inf, 7, 10, 13, 0, inf, inf, inf, inf,inf, inf, inf, inf], 
+[inf, 11, inf, inf, inf, inf, 0, inf, 8, inf, inf, inf, inf,inf], 
+[inf, inf, inf, inf, 6, inf, inf, 0, 9, inf, inf, inf, inf,inf], 
+[inf, 12, inf, inf, 11, inf, 8, 9, 0, 10, inf, inf, 14, inf], 
+[inf, inf, inf, inf,inf, inf, inf, inf, 10, 0, inf, inf, 14, inf], 
+[10, 10, inf, inf, inf, inf,inf, inf, inf, inf, 0, inf, inf, inf], 
+[9, inf, inf, inf, inf,inf, inf, inf, inf,inf, inf, 0, 9, 6], 
+[12,inf, inf, inf, inf,inf, inf, inf, 14, 14, inf, 9, 0, 9], 
+[9, inf, inf, inf, inf,inf, inf, inf, inf,inf, inf, 6, 9, 0]]
+
+impostors_graph = [[0, 15, inf, inf, inf, inf, inf, inf, inf, inf, 10, 9, 12, 0, inf], 
+[15, 0, 9, inf, inf, inf, 0, inf, 12, inf, 10, inf, inf, inf, 0], 
+[inf, 9, 0, 0, inf, 7, inf, inf, inf, inf, inf, inf, inf, inf, inf], 
+[inf, inf, 0, 0, 0, 10, inf, inf, inf, inf, inf, inf, inf, inf, 6], 
+[inf, inf, inf, 0, 0, inf, inf, 6, 11, inf, inf, inf, inf, inf,  6], 
+[inf, inf, 7, 10, inf,  inf, inf, inf, inf, inf, inf, inf, inf, inf,  10], 
+[inf, 0, inf, inf, inf, inf, 0, inf, 8, inf, inf, inf, inf, inf, 0], 
+[inf, inf, inf, inf, 6, inf, inf, 0, 9, inf, inf, inf, inf, inf, inf],  
+[inf, 12, inf, inf, 11, inf, 8, 9, 0, 10, inf, inf, 14, inf, inf], 
+[inf, inf, inf, inf, inf, inf, inf, inf, 10, 0, 0, 0, 14, inf, inf], 
+[10, 10, inf, inf, inf, inf, inf, inf, inf, 0, 0, 0, inf, inf, inf], 
+[9, inf, inf, inf, inf, inf, inf, inf, inf, 0, 0, 0, 9, 6, inf],
+[12, inf, inf, inf, inf, inf, inf, inf, 14, 14, inf, 9, 0, 0, inf],
+[0, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, 6, 0, 0, inf], 
+[inf, 0, inf, 6, 6, 10, 0, inf, inf, inf, inf, inf, inf, inf, 0]]
+
+names_rooms_crew = ["Upper E", "Cafeteria", "Weapons", "Navigations", "Shield", "O2", "Unnamed1", "Unnamed2", "Storage",  "Electrical", "Medbay", "Security", "Lower E", "Reactor"]
+
+names_rooms_imp = ["Upper E", "Cafeteria", "Weapons", "Navigations", "Shield", "O2", "Unnamed1", "Unnamed2", "Storage", "Electrical", "MedBay", "Security", "Lower E", "Reactor", "Corridor W"]
+
+# We will use FloydWarshall : 
+def floydWarshall(matrix):
+    """Return the minimal distances between every node.
     
+    :param matrix: Matrix of adjacency of a graph.
+    :return: Matrix of minimal distances between every node.
+    """
+    dist = matrix
+    for k in range(len(matrix)):
+        for i in range(len(matrix)):
+            for j in range(len(matrix)): 
+                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+    return dist
+
+
+
+
+
+
+############################## TESTING FUNCTIONS ##############################
+
 def test_points():
     """
     Method for testing the points attribution between players in a game
@@ -676,72 +602,49 @@ def test_points():
     -------
     None.
     """
-    players = [Player('doubleA'), Player('polo'), Player('tomus'), 
-               Player('youngsamoo'), Player('jbinks'), Player('nyo'), 
-               Player('jojo'), Player('clemter'), Player('paul'), Player('aladin')]
+    players = [Player('ZeratoR'), Player('Domingo'), Player('Xari'), 
+               Player('Kamet0'), Player('Kotei'), Player('Maghla'), 
+               Player('Gotaga'), Player('Squeezie'), Player('Skyyart'), Player('Solary')]
     game = Game(players)
     
     game.Points()
     for player in game.players:
         print("Impostor :", player.impostor, player.name, player.score)
     
-def test_tournament():
-    players = []
-    for i in range(100):
-        player_name = 'player ' + str(i+1) + ' '
-        players.append(Player(player_name))
-    tournament = Tournament(players)
-    tournament.Start()
-    print(tournament)
     
-
-#test function for computing the probability for each player of being an impostor in the example given
 def test_has_seen():
     """
-    Method for testing the has-seen algorithm
+    Method for testing the has-seen algorithm by computing the probability for each player of being an impostor in the example given.
     """
     
-    #the incidence matrix representing the has-seen-graph    
-    inc_mat=np.array([[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
-                     [1,0,0,1,1,0,0,0,0,0,0,0,0,0,0],
-                     [0,0,0,1,0,1,1,0,0,0,0,0,0,0,0],
-                     [0,0,0,0,0,1,0,1,1,0,0,0,0,0,0],
-                     [0,1,0,0,0,0,0,1,0,1,0,0,0,0,0],
-                     [0,0,1,0,0,0,0,0,0,0,1,1,0,0,0],
-                     [0,0,0,1,0,0,0,0,0,0,0,0,1,1,0],
-                     [0,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
-                     [0,0,0,0,0,0,0,0,1,0,0,1,1,0,0],
-                     [0,0,0,0,0,0,0,0,0,1,0,0,0,1,1]])
-    players = [Player('doubleA'), Player('polo'), Player('tomus'), 
-               Player('youngsamoo'), Player('jbinks'), Player('nyo'), 
-               Player('jojo'), Player('clemter'), Player('paul'), Player('aladin')]
+    #The incidence matrix representing the has-seen graph.   
+    incidence_matrix=np.array([[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+                               [1,0,0,1,1,0,0,0,0,0,0,0,0,0,0],
+                               [0,0,0,1,0,1,1,0,0,0,0,0,0,0,0],
+                               [0,0,0,0,0,1,0,1,1,0,0,0,0,0,0],
+                               [0,1,0,0,0,0,0,1,0,1,0,0,0,0,0],
+                               [0,0,1,0,0,0,0,0,0,0,1,1,0,0,0],
+                               [0,0,0,1,0,0,0,0,0,0,0,0,1,1,0],
+                               [0,0,0,0,0,0,1,0,0,0,1,0,0,0,1],
+                               [0,0,0,0,0,0,0,0,1,0,0,1,1,0,0],
+                               [0,0,0,0,0,0,0,0,0,1,0,0,0,1,1]])
+    players = [Player('Player 0'), Player('Player 1'), Player('Player 2'), 
+               Player('Player 3'), Player('Player 4'), Player('Player 5'), 
+               Player('Player 6'), Player('Player 7'), Player('Player 8'), Player('Player 9')]
     game = Game(players)
-    game.probable_impostors(players[0], inc_mat)
-  
+    game.probable_impostors(players[0], incidence_matrix)
 
-def test_random_has_seen():
-    """
-    Test function for generating a random first kill and random connexions between the players, 
-    and then computing players' probability of being impostor
-    """
-    players = [Player('doubleA'), Player('polo'), Player('tomus'), 
-               Player('youngsamoo'), Player('jbinks'), Player('nyo'), 
-               Player('jojo'), Player('clemter'), Player('paul'), Player('aladin')]
-    game = Game(players)
-    inc_mat = game.mat_has_seen()
-    print(inc_mat,"\n")
-    random_dead_idx = random.randint(0,7) # we choose a random crewmate to die
-    dead_cm = game.crewmates[random_dead_idx]
-    
-    game.probable_impostors(dead_cm, game.mat_has_seen())
-    
+def test_distance():
+  df_crew = pd.DataFrame(floydWarshall(crewmates_graph), columns = names_rooms_crew, index = names_rooms_crew)
+  print(df_crew)
 
+  df_imp = pd.DataFrame(floydWarshall(impostors_graph), columns = names_rooms_imp, index = names_rooms_imp)
+  print(df_imp)
 
-Tournament2.run()
+#Tournament.run()
 
-#test_game()
-#test_tournament()
 #test_points()
+
 #test_has_seen() 
-#test_random_has_seen()
-   
+
+test_distance()
