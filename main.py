@@ -1,14 +1,17 @@
 import sys
-#from Steps_Project import * 
 
-from .Step1 import run_step1
+from Steps_Project import * 
 
-ARG = str(sys.argv[1])
+
+
+
 
 def main(): 
-  if ARG == "1":
-    run_step1.run_tournament() 
-    run_step1.run_game_points()
+
+    Run_Step1.run_tournament() 
+    Run_Step1.run_game_points()
+  
+
 
 if __name__ == "__main__" : 
     main()
