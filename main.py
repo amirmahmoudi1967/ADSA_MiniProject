@@ -10,6 +10,7 @@ def main():
 
     Run_Step1.run_tournament() 
     Run_Step1.run_game_points()
+    #test
   
 
 
