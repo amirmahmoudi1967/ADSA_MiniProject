@@ -1,9 +1,11 @@
 import numpy as np
 import math
-import pandas as pd
+import pandas as pd 
+
 inf = math.inf
 names_rooms = ["Upper E", "Cafeteria", "Weapons", "Navigations", "Shield", "O2", "Admin", "Communication", "Storage", "Electrical", "MedBay", "Security", "Lower E", "Reactor", "West Corridor"]
 class Vertex:#Class use to define vertex we obtain parent other vertex we are linked to
+
     def __init__(self, name):
         self.name = name
         self.links = []
@@ -14,6 +16,18 @@ class Vertex:#Class use to define vertex we obtain parent other vertex we are li
             seed += f"\n\tVertex {link[0].name}, Distance: {link[1]}\n"
         return seed
 
+
+def reporttxt(graph): #function to resport in a txt file
+    file = open("report.txt", "a")
+    for vertex in graph:
+          report = vertex.__str__()
+          print(report)
+          file.write(report + "\n")
+    file.write("\n")
+    file.close()
+   #computing exercice
+
+    
 def FloydWarshall(graph):#Floyd-Warshall algorithm
     if len(graph)==15:
         with open("report.txt", "a") as file:
@@ -55,8 +69,10 @@ def FloydWarshall(graph):#Floyd-Warshall algorithm
         file.write("Second matrix floyd Warshall\n")
         file.write(str(df) + "\n\n")
     reporttxt(graph)
+      
+class FloydWarshall_runstep3 : 
 
-def step3():
+ def FloydWarshall_Pathfinding():
     graph_impostors=[]
     graph_crewmates=[]
     for i in range(len(names_rooms)):
@@ -97,18 +113,4 @@ def step3():
     graph_crewmates[13].links = [(graph_crewmates[0], 6), (graph_crewmates[11], 5), (graph_crewmates[12], 6)]
     FloydWarshall(graph_crewmates)
 
-
-#function to resport in a txt file
-def reporttxt(graph):
-    file = open("report.txt", "a")
-    for vertex in graph:
-        report = vertex.__str__()
-        print(report)
-        file.write(report + "\n")
-    file.write("\n")
-    file.close()
-
-#computing exercice
-with open("report.txt", "w") as file:# we create a report txt file (it will be in the same repertory as this code)
-    file.write("Step 3 Floyd Warshall \n\n")
-step3()
+ 
