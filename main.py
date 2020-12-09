@@ -56,7 +56,7 @@ def main(stdscr):
       if current_row == len(menu)-5:
         Run_Step3.run_Pathfinding_graph()
       if current_row == len(menu)-4:
-        Run_main2()
+        Run_Step2.test_has_seen()
       if current_row == len(menu)-3:
         Run_Step3.run_Pathfinding_graph()
       if current_row == len(menu)-2:
