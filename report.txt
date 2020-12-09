@@ -418,3 +418,6723 @@ Room Name : Reactor
 	Vertex Security, Distance: 5
 
 	Vertex Lower E, Distance: 6
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
+Floyd-Warshall algorithm for impostors : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  0. inf]
+ [10.  0.  6. inf inf inf  0. inf  9. inf  8. inf inf inf  0.]
+ [inf  6.  0.  0. 12.  5. inf inf inf inf inf inf inf inf  7.]
+ [inf inf  0.  0.  0.  8. inf inf inf inf inf inf inf inf  5.]
+ [inf inf 12.  0.  0. 11. inf  5.  7. inf inf inf inf inf  4.]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf  6.]
+ [inf  0. inf inf inf inf  0. inf  7. inf inf inf inf inf  0.]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf inf]
+ [inf inf inf inf inf inf inf inf  8.  0.  0.  0.  9. inf inf]
+ [ 8.  8. inf inf inf inf inf inf inf  0.  0.  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf  0.  0.  0.  6.  5. inf]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  0. inf]
+ [ 0. inf inf inf inf inf inf inf inf inf inf  5.  0.  0. inf]
+ [inf  0.  7.  5.  4.  6.  0. inf inf inf inf inf inf inf  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Lower E  Reactor  West Corridor
+Upper E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Cafeteria         10.0        0.0      4.0  ...     10.0     10.0            0.0
+Weapons           14.0        4.0      0.0  ...     14.0     14.0            4.0
+Navigations       14.0        4.0      0.0  ...     14.0     14.0            4.0
+Shield            14.0        4.0      0.0  ...     14.0     14.0            4.0
+O2                16.0        6.0      5.0  ...     16.0     16.0            6.0
+Admin             10.0        0.0      4.0  ...     10.0     10.0            0.0
+Communication     17.0        9.0      5.0  ...     17.0     17.0            9.0
+Storage           11.0        7.0      7.0  ...     11.0     11.0            7.0
+Electrical         5.0        8.0     12.0  ...      5.0      5.0            8.0
+MedBay             5.0        8.0     12.0  ...      5.0      5.0            8.0
+Security           5.0        8.0     12.0  ...      5.0      5.0            8.0
+Lower E            0.0       10.0     14.0  ...      0.0      0.0           10.0
+Reactor            0.0       10.0     14.0  ...      0.0      0.0           10.0
+West Corridor     10.0        0.0      4.0  ...     10.0     10.0            0.0
+
+[15 rows x 15 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 0
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 0
+
+	Vertex Shield, Distance: 12
+
+	Vertex West Corridor, Distance: 7
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 0
+
+	Vertex Shield, Distance: 0
+
+	Vertex O2, Distance: 8
+
+	Vertex West Corridor, Distance: 5
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 0
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+	Vertex West Corridor, Distance: 4
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+	Vertex West Corridor, Distance: 6
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Storage, Distance: 7
+
+	Vertex West Corridor, Distance: 0
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+	Vertex Security, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+	Vertex Security, Distance: 0
+
+	Vertex Electrical, Distance: 0
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+	Vertex Electrical, Distance: 0
+
+	Vertex MedBay, Distance: 0
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 0
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 0
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 0
+
+
+Room Name : West Corridor
+
+ Links :
+	Vertex Cafeteria, Distance: 0
+
+	Vertex Admin, Distance: 0
+
+	Vertex Weapons, Distance: 7
+
+	Vertex O2, Distance: 6
+
+	Vertex Navigations, Distance: 5
+
+	Vertex Shield, Distance: 4
+
+
+Floyd-Warshall algorithm for crewmates : 
+First matrix floyd Warshall
+[[ 0. 10. inf inf inf inf inf inf inf inf  8.  6. inf  6.]
+ [10.  0.  6. inf inf inf  8. inf  9. inf  8. inf inf inf]
+ [inf  6.  0.  8. 12.  5. inf inf inf inf inf inf inf inf]
+ [inf inf  8.  0. 10.  8. inf inf inf inf inf inf inf inf]
+ [inf inf 12. 10.  0. 11. inf  5.  7. inf inf inf inf inf]
+ [inf inf  5.  8. 11.  0. inf inf inf inf inf inf inf inf]
+ [inf  8. inf inf inf inf  0. inf  7. inf inf inf inf inf]
+ [inf inf inf inf  5. inf inf  0.  6. inf inf inf inf inf]
+ [inf  9. inf inf  7. inf  7.  6.  0.  8. inf inf 11. inf]
+ [inf inf inf inf inf inf inf inf  8.  0. inf inf  9. inf]
+ [ 8.  8. inf inf inf inf inf inf inf inf  0. inf inf inf]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  0.  6.  5.]
+ [inf inf inf inf inf inf inf inf 11.  9. inf  6.  0.  6.]
+ [ 6. inf inf inf inf inf inf inf inf inf inf  5.  6.  0.]]
+
+Second matrix floyd Warshall
+               Upper E  Cafeteria  Weapons  ...  Security  Lower E  Reactor
+Upper E            0.0       10.0     16.0  ...       6.0     12.0      6.0
+Cafeteria         10.0        0.0      6.0  ...      16.0     20.0     16.0
+Weapons           16.0        6.0      0.0  ...      22.0     26.0     22.0
+Navigations       24.0       14.0      8.0  ...      30.0     28.0     30.0
+Shield            26.0       16.0     12.0  ...      24.0     18.0     24.0
+O2                21.0       11.0      5.0  ...      27.0     29.0     27.0
+Admin             18.0        8.0     14.0  ...      24.0     18.0     24.0
+Communication     25.0       15.0     17.0  ...      23.0     17.0     23.0
+Storage           19.0        9.0     15.0  ...      17.0     11.0     17.0
+Electrical        21.0       17.0     23.0  ...      15.0      9.0     15.0
+MedBay             8.0        8.0     14.0  ...      14.0     20.0     14.0
+Security           6.0       16.0     22.0  ...       0.0      6.0      5.0
+Lower E           12.0       20.0     26.0  ...       6.0      0.0      6.0
+Reactor            6.0       16.0     22.0  ...       5.0      6.0      0.0
+
+[14 rows x 14 columns]
+
+
+Room Name : Upper E
+
+ Links :
+	Vertex Cafeteria, Distance: 10
+
+	Vertex MedBay, Distance: 8
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Cafeteria
+
+ Links :
+	Vertex Upper E, Distance: 10
+
+	Vertex Weapons, Distance: 6
+
+	Vertex Admin, Distance: 8
+
+	Vertex Storage, Distance: 9
+
+	Vertex MedBay, Distance: 8
+
+
+Room Name : Weapons
+
+ Links :
+	Vertex Cafeteria, Distance: 6
+
+	Vertex O2, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 12
+
+
+Room Name : Navigations
+
+ Links :
+	Vertex Weapons, Distance: 8
+
+	Vertex Shield, Distance: 10
+
+	Vertex O2, Distance: 8
+
+
+Room Name : Shield
+
+ Links :
+	Vertex Navigations, Distance: 10
+
+	Vertex Weapons, Distance: 12
+
+	Vertex O2, Distance: 11
+
+	Vertex Storage, Distance: 7
+
+	Vertex Communication, Distance: 5
+
+
+Room Name : O2
+
+ Links :
+	Vertex Weapons, Distance: 5
+
+	Vertex Navigations, Distance: 8
+
+	Vertex Shield, Distance: 11
+
+
+Room Name : Admin
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Storage, Distance: 7
+
+
+Room Name : Communication
+
+ Links :
+	Vertex Shield, Distance: 5
+
+	Vertex Storage, Distance: 6
+
+
+Room Name : Storage
+
+ Links :
+	Vertex Cafeteria, Distance: 9
+
+	Vertex Shield, Distance: 7
+
+	Vertex Admin, Distance: 7
+
+	Vertex Communication, Distance: 6
+
+	Vertex Electrical, Distance: 8
+
+	Vertex Lower E, Distance: 11
+
+
+Room Name : Electrical
+
+ Links :
+	Vertex Storage, Distance: 8
+
+	Vertex Lower E, Distance: 9
+
+
+Room Name : MedBay
+
+ Links :
+	Vertex Cafeteria, Distance: 8
+
+	Vertex Upper E, Distance: 8
+
+
+Room Name : Security
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Lower E, Distance: 6
+
+	Vertex Reactor, Distance: 5
+
+
+Room Name : Lower E
+
+ Links :
+	Vertex Storage, Distance: 11
+
+	Vertex Electrical, Distance: 9
+
+	Vertex Security, Distance: 6
+
+	Vertex Reactor, Distance: 6
+
+
+Room Name : Reactor
+
+ Links :
+	Vertex Upper E, Distance: 6
+
+	Vertex Security, Distance: 5
+
+	Vertex Lower E, Distance: 6
+
+
