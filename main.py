@@ -1,71 +1,89 @@
-import sys
-import curses 
+import sys, os
 from Steps_Project import * 
+from termcolor import colored 
+#https://pypi.org/project/termcolor/
 
 
-menu = ['Step 1 : To organize the tournament','Step 2 : Professor Layton < Guybrush Threepwood < You','Step 3 : I dont see him, but i can give proofs he vents !','Step 4 : Secure the last tasks','Exit']
+def menu(): 
+  print("\t\t\t<<  Menu of the Mini-problem of ADSA  >>")
+  print("\n[1] Step 1 : To organize the tournament")
+  print("[2] Step 2 : Professor Layton < Guybrush Threepwood < You ")
+  print("[3] Step 3 : I dont see him, but i can give proofs he vents !")
+  print("[4] Step 4 : Secure the last tasks")
+  print("[9] Clear the console.")
+  print("[0] Exit the program.")
 
 
-def print_menu(stdscr, selected_row_idx):
-  stdscr.clear()
-  h, w = stdscr.getmaxyx()
-  for idx, row in enumerate(menu):
-    x = w//2 - len(row)//2 
-    y = h//2 - len(menu)//2 + idx 
-    if idx == selected_row_idx: 
-      stdscr.attron(curses.color_pair(1))
-      stdscr.addstr(y,x,row)
-      stdscr.attroff(curses.color_pair(1))
-    else : 
-      stdscr.addstr(y,x,row)
-  stdscr.refresh()
+def step1_menu():
+
+  print("[1] : Running a simulation of a tournament.")
+  print("[2] : Running a simulation of a random game of the tournament.")
+  print("[0] : Exit the step 1 and return to the main menu of the program.\n")
+  
+  option_step1 = int(input("Enter your option of Step 1 : "))
+  os.system("clear")
+
+  while option_step1 != 0:
+    
+    if option_step1 == 1: 
+      Run_Step1.run_tournament()
+      break
+
+    elif option_step1 == 2: 
+      Run_Step1.run_game_points()
+      break
+
+    elif option_step1 == 0: 
+      os.system("clear")
+      menu()
+    
+    else: 
+     print("\nInvalid option. Please try again !")      
+      
 
 
-def print_center(stdscr,text):
-  stdscr.clear()
-  h,w = stdscr.getmaxyx()
-  x = w//2 - len(text)//2
-  y = h//2 
-  stdscr.addstr(y,x,text)
-  stdscr.refresh()
+print(colored("\t\t\tWelcome to our program for the ADSA Mini-Project of Among Us :", "red",attrs =['blink']))
+print(colored("\nDone by LAHBABI Yassine & MAHMOUDI Amir","grey","on_white"))
+print("\nESILV - DIA 4\n")
+
+menu()
+option = int(input("Enter your option : "))
+os.system("clear")
 
 
-def main(stdscr):
+while option !=0:
+  
+  if option == 1: 
+    print("\nOption 1 has been called successfully.\n")
+    step1_menu()
+  
+  elif option == 2: 
+    print("\nOption 2 has been called successfully.\n") 
+    Run_Step2.test_has_seen()
+  
+  elif option == 3: 
+    print("\nOption 3 has been called successfully.\n")
+    Run_Step3.run_Pathfinding_graph()
+  
+  elif option == 4: 
+    print("\nOption 4 has been called successfully.\n")
+    Run_Step4.run_hamilton()
+  
+  elif option == 9: 
+    os.system("clear")
+    print("\n Console cleared successfully.\n")
 
-  #turn off cursor blinking
-  curses.curs_set(0)
+  else: 
+    print("\nInvalid option. Please try again !")
 
-  #color scheme for selected row
-  curses.init_pair(1,curses.COLOR_BLACK,curses.COLOR_WHITE)
+  
+  print()
+  menu()
+  option = int(input("Enter your option : "))   
+  os.system("clear")
 
-  #specify the current selected row
-  current_row = 0 
- 
-  #print the menu
-  print_menu(stdscr, current_row)
+print("\nThanks for using this program. Goodbye.")
 
-  while 1 : 
-    key = stdscr.getch()
-    if key == curses.KEY_UP and current_row > 0: 
-      current_row -= 1 
-    elif key == curses.KEY_DOWN and current_row < len(menu) - 1:
-      current_row += 1 
-    elif key == curses.KEY_ENTER or key in [10,13]:
-      #print_center(stdscr,"You selected'{}'".format(menu[current_row]))
-      stdscr.getch()
-      if current_row == len(menu)-5:
-        Run_Step3.run_Pathfinding_graph()
-      if current_row == len(menu)-4:
-        Run_Step2.test_has_seen()
-      if current_row == len(menu)-3:
-        Run_Step3.run_Pathfinding_graph()
-      if current_row == len(menu)-2:
-        Run_Step4.run_hamilton()
-      if current_row == len(menu)-1:
-        break
-    print_menu(stdscr,current_row)
-
-curses.wrapper(main)
 
 
 
@@ -81,5 +99,3 @@ curses.wrapper(main)
 
 
 
-#if __name__ == "__main__" : 
- #   main()
