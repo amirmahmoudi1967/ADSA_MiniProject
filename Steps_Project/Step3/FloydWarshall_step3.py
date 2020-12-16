@@ -84,8 +84,7 @@ def compare(matrix_1,matrix_2):
 class FloydWarshall_runstep3 : 
 
  def FloydWarshall_Pathfinding():
-    with open("report.txt", "w") as file:# we create a report txt file (it will be in the same repertory as this code)
-    file.write("Step 3 Floyd Warshall \n\n")
+   
     graph_impostors=[]
     graph_crewmates=[]
     for i in range(len(names_rooms)):
