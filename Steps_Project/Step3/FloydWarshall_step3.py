@@ -69,10 +69,23 @@ def FloydWarshall(graph):#Floyd-Warshall algorithm
         file.write("Second matrix floyd Warshall\n")
         file.write(str(df) + "\n\n")
     reporttxt(graph)
+    return matrix
+
+def compare(matrix_1,matrix_2):
+    for i in range (14):
+        for j in range (14):
+            if(i!=j):
+                delay=matrix_2[i][j]-matrix_1[i][j]
+                start=names_rooms[i]
+                end=names_rooms[j]
+                print("impostors going from "+start+" to "+end+" is "+str(delay)+" seconds quicker than a crewmate")
+        print("\n\n")
       
 class FloydWarshall_runstep3 : 
 
  def FloydWarshall_Pathfinding():
+    with open("report.txt", "w") as file:# we create a report txt file (it will be in the same repertory as this code)
+    file.write("Step 3 Floyd Warshall \n\n")
     graph_impostors=[]
     graph_crewmates=[]
     for i in range(len(names_rooms)):
@@ -94,7 +107,7 @@ class FloydWarshall_runstep3 :
     graph_impostors[12].links = [(graph_impostors[8], 11), (graph_impostors[9], 9), (graph_impostors[11], 6), (graph_impostors[13], 0)]
     graph_impostors[13].links = [(graph_impostors[0], 0), (graph_impostors[11], 5), (graph_impostors[12], 0)]
     graph_impostors[14].links = [(graph_impostors[1], 0), (graph_impostors[6], 0), (graph_impostors[2], 7), (graph_impostors[5], 6), (graph_impostors[3], 5), (graph_impostors[4], 4)]
-    FloydWarshall(graph_impostors)
+    matrix_1 = FloydWarshall(graph_impostors)
 
     graph_crewmates.pop(14)
     graph_crewmates[0].links = [(graph_crewmates[1],10 ), (graph_crewmates[10],8 ), (graph_crewmates[11],6 ), (graph_crewmates[13],6 )]
@@ -111,6 +124,8 @@ class FloydWarshall_runstep3 :
     graph_crewmates[11].links = [(graph_crewmates[0], 6), (graph_crewmates[12], 6), (graph_crewmates[13], 5)]
     graph_crewmates[12].links = [(graph_crewmates[8], 11), (graph_crewmates[9], 9), (graph_crewmates[11], 6), (graph_crewmates[13], 6)]
     graph_crewmates[13].links = [(graph_crewmates[0], 6), (graph_crewmates[11], 5), (graph_crewmates[12], 6)]
-    FloydWarshall(graph_crewmates)
+    matrix_2 = FloydWarshall(graph_crewmates)
+    
+    compare(matrix_1,matrix_2)
 
  
