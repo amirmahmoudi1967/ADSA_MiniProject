@@ -5,6 +5,7 @@ from termcolor import colored
 
 
 def menu(): 
+
   print("\t\t\t<<  Menu of the Mini-problem of ADSA  >>")
   print("\n[1] Step 1 : To organize the tournament")
   print("[2] Step 2 : Professor Layton < Guybrush Threepwood < You ")
@@ -41,7 +42,6 @@ def step1_menu():
      print("\nInvalid option. Please try again !")      
       
 
-
 print(colored("\t\t\tWelcome to our program for the ADSA Mini-Project of Among Us :", "red",attrs =['blink']))
 print(colored("\nDone by LAHBABI Yassine & MAHMOUDI Amir","grey","on_white"))
 print("\nESILV - DIA 4\n")
@@ -57,18 +57,22 @@ while option !=0:
     print("\nOption 1 has been called successfully.\n")
     step1_menu()
   
+  
   elif option == 2: 
     print("\nOption 2 has been called successfully.\n") 
-    Run_Step2.test_has_seen()
-  
+    Run_Step2.graph_coloring()
+
+
   elif option == 3: 
     print("\nOption 3 has been called successfully.\n")
     Run_Step3.run_Pathfinding_graph()
   
+
   elif option == 4: 
     print("\nOption 4 has been called successfully.\n")
     Run_Step4.run_hamilton()
   
+
   elif option == 9: 
     os.system("clear")
     print("\n Console cleared successfully.\n")
