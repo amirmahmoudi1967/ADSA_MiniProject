@@ -19,17 +19,20 @@ class AVLTree():
     def delete(self, player):
         if self.node != None:
             if self.node.name == player.name:
-                # If we find the key in the leaf node, we erase the player. 
+
+               # If the key is in the leaf node we delete the player. 
                 if not self.node.left.node and not self.node.right.node:
                     self.node = None
-                # Node has only one subtree (right), replacing the root
+
+                # Replacing the root because the node has only one right subtree.
                 elif not self.node.left.node:                
                     self.node = self.node.right.node
-                # Node has only one subtree (left), replacing the root
+                
+                # Replacing the root because the node has only on left subtree.
                 elif not self.node.right.node:
                     self.node = self.node.left.node
                 else:
-                    # Find  successor as smallest node in right subtree or
+                    # Find the successor as smallest node in right subtree or
                     # predecessor as largest node in left subtree
                     successor = self.node.right.node  
                     while successor and successor.left.node:
@@ -65,7 +68,7 @@ class AVLTree():
             # Left subtree is larger than right subtree
             if self.balance > 1:
 
-                # Left Right Caseif self.node.left.balance < 0:self.node.left.rotate_left()
+                # Left Right Case if self.node.left.balance < 0: self.node.left.rotate_left()
                 self.update_heights()
                 self.update_balances()
 
@@ -87,6 +90,7 @@ class AVLTree():
                 self.update_heights()
                 self.update_balances()
 
+
     def update_heights(self, recursive=True):
         """
         Update tree height
@@ -102,6 +106,7 @@ class AVLTree():
             self.height = 1 + max(self.node.left.height, self.node.right.height)
         else: 
             self.height = -1
+
 
     def update_balances(self, recursive=True):
         """

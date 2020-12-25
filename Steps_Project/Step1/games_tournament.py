@@ -37,14 +37,14 @@ class Tournament() :
         print(f"Round number {number} is being played: \n")
         print("First game --> \n")
         print("The",shufflerRole,"won the game",shufflerWin)
-        firstScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
+        Result_n1 = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
         print("Second game --> \n")
         print("The",shufflerRole,"won the game",shufflerWin)
-        secondScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
+        Result_n2 = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
         print("Third game --> \n")
         print("The",shufflerRole,"won the game",shufflerWin)
-        thirdScores = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
-        averageScores = [round(mean(data), 2) for data in list(zip(firstScores, secondScores, thirdScores))]
+        Result_n3 = [random.randint(0, 12) for _ in range(100 - ((number - 1) * 10))]
+        averageScores = [round(mean(data), 2) for data in list(zip(Result_n1, Result_n2, Result_n3))]
         self.update_ladder(averageScores)
         worstPlayers = []
         for _ in range(10):
@@ -63,6 +63,7 @@ class Tournament() :
             newLadder.insert(player)
             i += 1
         self.ladder = newLadder
+
 
     def finals(self):
         print("Finals --> \n")

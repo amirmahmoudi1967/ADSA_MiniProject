@@ -8,14 +8,3 @@ class Player() :
         self.left = None  
         self.right = None
     
-    def __str__(self) -> str: 
-        res = self.name + 'is'
-        if self.alive: 
-            res += ' alive, and he is '
-        else : 
-            res += ' dead, and he is '
-        if self.impostor: 
-            res += 'an Impostor'
-        else : 
-            res += 'a Crewmate'
-        return res 
