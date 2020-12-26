@@ -50,14 +50,17 @@ def FloydWarshall(graph):#Floyd-Warshall algorithm
                     pass
     print(matrix)
     print("\n\n")
-    with open("report.txt", "a") as file:
+    with open("report.txt", "a") as file:#report in txt
         file.write("First matrix floyd Warshall\n")
         file.write(str(matrix) + "\n\n")
+    
     for k in range(n):
         for i in range(n):
             for j in range(n):
                 if matrix[i][j] > matrix[i][k] + matrix[k][j]:
                     matrix[i][j] = int(matrix[i][k] + matrix[k][j])
+                    
+    #report the matrix as a dataframe 2 methods (if and else) because impostor have 1 extra room
     if(len(matrix)==15):
         df = pd.DataFrame(data=matrix,index = names_rooms, columns=names_rooms)
     else:
@@ -65,19 +68,23 @@ def FloydWarshall(graph):#Floyd-Warshall algorithm
         names_rooms_crew.remove("West Corridor")
         df = pd.DataFrame(data=matrix,index = names_rooms_crew, columns=names_rooms_crew)
     print(df)
-    with open("report.txt", "a") as file:
+    
+    with open("report.txt", "a") as file:#report in txt
         file.write("Second matrix floyd Warshall\n")
         file.write(str(df) + "\n\n")
     reporttxt(graph)
     return matrix
 
 def compare(matrix_1,matrix_2):
+    #we consider the two matrix with only the common rooms so west corrider is removed from impostors matrix
     for i in range (14):
         for j in range (14):
-            if(i!=j):
+            if(i!=j):#we don't compare when we go from and to the same room (upper E to upper E)
+                #time delay is crewmate's time - impostor's time
                 delay=matrix_2[i][j]-matrix_1[i][j]
                 start=names_rooms[i]
                 end=names_rooms[j]
+                #printing answer for each pair of room
                 print("impostors going from "+start+" to "+end+" is "+str(delay)+" seconds quicker than a crewmate")
         print("\n\n")
       
@@ -89,9 +96,11 @@ class FloydWarshall_runstep3 :
     graph_impostors=[]
     graph_crewmates=[]
     for i in range(len(names_rooms)):
-        graph_impostors.append(Vertex(names_rooms[i]))
-        graph_crewmates.append(Vertex(names_rooms[i]))
-
+        graph_impostors.append(Vertex(names_rooms[i]))#graph with 15 vertices
+        graph_crewmates.append(Vertex(names_rooms[i]))#graph with 14 vertices
+    
+    #we create the graphs
+    #to add link we have (vertex, weigth)
     graph_impostors[0].links = [(graph_impostors[1],10 ), (graph_impostors[10],8 ), (graph_impostors[11],6 ), (graph_impostors[13],0)]
     graph_impostors[1].links = [(graph_impostors[0],10 ), (graph_impostors[2],6 ), (graph_impostors[6],0 ), (graph_impostors[8],9 ), (graph_impostors[10],8 ), (graph_impostors[14], 0)]
     graph_impostors[2].links = [(graph_impostors[1], 6), (graph_impostors[5], 5), (graph_impostors[3], 0 ), (graph_impostors[4], 12),(graph_impostors[14], 7)]
