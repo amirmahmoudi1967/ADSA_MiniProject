@@ -101,38 +101,67 @@ class FloydWarshall_runstep3 :
     
     #we create the graphs
     #to add link we have (vertex, weigth)
-    graph_impostors[0].links = [(graph_impostors[1],10 ), (graph_impostors[10],8 ), (graph_impostors[11],6 ), (graph_impostors[13],0)]
+    graph_impostors[0].links = [(graph_impostors[1],10 ), (graph_impostors[10],8 ), (graph_impostors[11],6 ), (graph_impostors[13],0),(graph_impostors[12],6)]
+
     graph_impostors[1].links = [(graph_impostors[0],10 ), (graph_impostors[2],6 ), (graph_impostors[6],0 ), (graph_impostors[8],9 ), (graph_impostors[10],8 ), (graph_impostors[14], 0)]
+
     graph_impostors[2].links = [(graph_impostors[1], 6), (graph_impostors[5], 5), (graph_impostors[3], 0 ), (graph_impostors[4], 12),(graph_impostors[14], 7)]
+
     graph_impostors[3].links = [(graph_impostors[2], 0), (graph_impostors[4],0 ), (graph_impostors[5],8 ),(graph_impostors[14], 5)]
+
     graph_impostors[4].links = [(graph_impostors[3], 0), (graph_impostors[2], 12), (graph_impostors[5], 11), (graph_impostors[8], 7),(graph_impostors[7], 5),(graph_impostors[14], 4)]
+
     graph_impostors[5].links = [(graph_impostors[2], 5), (graph_impostors[3], 8), (graph_impostors[4], 11),(graph_impostors[14], 6)]
+
     graph_impostors[6].links = [(graph_impostors[1], 0), (graph_impostors[8], 7),(graph_impostors[14], 0)]
-    graph_impostors[7].links = [(graph_impostors[4], 5), (graph_impostors[8], 6)]
+
+    graph_impostors[7].links = [(graph_impostors[4], 5), (graph_impostors[8], 6)
+    ]
     graph_impostors[8].links = [(graph_impostors[1], 9), (graph_impostors[4], 7), (graph_impostors[6], 7), (graph_impostors[7], 6),(graph_impostors[9], 8),(graph_impostors[12], 11)]
+
     graph_impostors[9].links = [(graph_impostors[8], 8), (graph_impostors[12], 9),(graph_impostors[11], 0),(graph_impostors[10], 0)]
+
     graph_impostors[10].links = [(graph_impostors[1], 8), (graph_impostors[0], 8),(graph_impostors[11], 0),(graph_impostors[9], 0)]
+
     graph_impostors[11].links = [(graph_impostors[0], 6), (graph_impostors[12], 6), (graph_impostors[13], 5),(graph_impostors[9], 0),(graph_impostors[10], 0)]
-    graph_impostors[12].links = [(graph_impostors[8], 11), (graph_impostors[9], 9), (graph_impostors[11], 6), (graph_impostors[13], 0)]
+
+    graph_impostors[12].links = [(graph_impostors[8], 11), (graph_impostors[9], 9), (graph_impostors[11], 6), (graph_impostors[13], 0),(graph_impostors[0],6)]
+
     graph_impostors[13].links = [(graph_impostors[0], 0), (graph_impostors[11], 5), (graph_impostors[12], 0)]
+
     graph_impostors[14].links = [(graph_impostors[1], 0), (graph_impostors[6], 0), (graph_impostors[2], 7), (graph_impostors[5], 6), (graph_impostors[3], 5), (graph_impostors[4], 4)]
+
     matrix_1 = FloydWarshall(graph_impostors)
 
     graph_crewmates.pop(14)
-    graph_crewmates[0].links = [(graph_crewmates[1],10 ), (graph_crewmates[10],8 ), (graph_crewmates[11],6 ), (graph_crewmates[13],6 )]
+    graph_crewmates[0].links = [(graph_crewmates[1],10 ), (graph_crewmates[10],8 ), (graph_crewmates[11],6 ), (graph_crewmates[13],6 ),(graph_crewmates[12],6)]
+
     graph_crewmates[1].links = [(graph_crewmates[0],10 ), (graph_crewmates[2],6 ), (graph_crewmates[6],8 ), (graph_crewmates[8],9 ), (graph_crewmates[10],8 )]
+
     graph_crewmates[2].links = [(graph_crewmates[1], 6), (graph_crewmates[5], 5), (graph_crewmates[3],8 ), (graph_crewmates[4], 12)]
+
     graph_crewmates[3].links = [(graph_crewmates[2], 8), (graph_crewmates[4],10 ), (graph_crewmates[5],8 )]
+
     graph_crewmates[4].links = [(graph_crewmates[3], 10), (graph_crewmates[2], 12), (graph_crewmates[5], 11), (graph_crewmates[8], 7),(graph_crewmates[7], 5)]
+
     graph_crewmates[5].links = [(graph_crewmates[2], 5), (graph_crewmates[3], 8), (graph_crewmates[4], 11)]
+
     graph_crewmates[6].links = [(graph_crewmates[1], 8), (graph_crewmates[8], 7)]
+
     graph_crewmates[7].links = [(graph_crewmates[4], 5), (graph_crewmates[8], 6)]
+
     graph_crewmates[8].links = [(graph_crewmates[1], 9), (graph_crewmates[4], 7), (graph_crewmates[6], 7), (graph_crewmates[7], 6),(graph_crewmates[9], 8),(graph_crewmates[12], 11)]
+
     graph_crewmates[9].links = [(graph_crewmates[8], 8), (graph_crewmates[12], 9)]
+
     graph_crewmates[10].links = [(graph_crewmates[1], 8), (graph_crewmates[0], 8)]
+
     graph_crewmates[11].links = [(graph_crewmates[0], 6), (graph_crewmates[12], 6), (graph_crewmates[13], 5)]
-    graph_crewmates[12].links = [(graph_crewmates[8], 11), (graph_crewmates[9], 9), (graph_crewmates[11], 6), (graph_crewmates[13], 6)]
+
+    graph_crewmates[12].links = [(graph_crewmates[8], 11), (graph_crewmates[9], 9), (graph_crewmates[11], 6), (graph_crewmates[13], 6),(graph_crewmates[0],6)]
+
     graph_crewmates[13].links = [(graph_crewmates[0], 6), (graph_crewmates[11], 5), (graph_crewmates[12], 6)]
+
     matrix_2 = FloydWarshall(graph_crewmates)
     
     compare(matrix_1,matrix_2)

@@ -19,7 +19,7 @@ seen[9] = [4,6,7]
 colors_of_players = {}
 
 def promising(player, color):
-  #this function test if to players have the same color if not we apply the current color to the current player
+  #this function test if two players have the same color if not we apply the current color to the current player
   #if not we check other colors
   for neighbor in seen.get(player): 
     color_of_neighbor = colors_of_players.get(neighbor)
@@ -28,7 +28,7 @@ def promising(player, color):
   return True
 
 def get_color_for_player(player):
-  #we will test each color in our color list color on every player
+  #we will test each color in our color list on every player
       for color in colors:
           if promising(player, color):
               return color
@@ -39,7 +39,7 @@ def impostors(player):
       """
       this loop will check the players seen by the different suspects and will admit
       that the potential partner for each suspect is one of the player the suspect hasn't seen
-      i.e : 4 is suspect but he saw 0,3 and 9 so is partner is among all the player less player
+      i.e : 4 is suspect but he saw 0,3 and 9 so his partner is among all the player less player
       0, 3 and 9
       """
       for neighbor in seen.get(player):
